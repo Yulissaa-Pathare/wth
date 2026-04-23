@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+
+<body>
+
+<h2>Weather App</h2>
+
+<input type="text" id="city" placeholder="Enter city">
+<button onclick="getWeather()">Search</button>
+
+<p id="result"></p>
+
+<script>
+function getWeather() {
+    var city = document.getElementById("city").value;
+
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=YOUR_API_KEY&units=metric")
+    
+    .then(res => res.json())
+    
+    .then(data => {
+        document.getElementById("result").innerHTML =
+            "Temp: " + data.main.temp + "°C <br>" +
+            "Weather: " + data.weather[0].main;
+    });
+}
+</script>
+
+</body>
+</html>
