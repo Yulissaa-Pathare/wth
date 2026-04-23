@@ -1,0 +1,61 @@
+data.xml
+
+<?xml version="1.0"?>
+
+<!DOCTYPE students [
+<!ELEMENT students (student+)>
+<!ELEMENT student (name, marks)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT marks (#PCDATA)>
+]>
+
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+
+<students>
+    <student>
+        <name>Rahul</name>
+        <marks>80</marks>
+    </student>
+
+    <student>
+        <name>Anita</name>
+        <marks>90</marks>
+    </student>
+</students>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+style.xsl
+<?xml version="1.0"?>
+
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+
+<html>
+<body>
+
+<h2>Student Data</h2>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Marks</th>
+</tr>
+
+<xsl:for-each select="students/student">
+<tr>
+    <td><xsl:value-of select="name"/></td>
+    <td><xsl:value-of select="marks"/></td>
+</tr>
+</xsl:for-each>
+
+</table>
+
+</body>
+</html>
+
+</xsl:template>
+
+</xsl:stylesheet>
