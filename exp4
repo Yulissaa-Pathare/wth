@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz</title>
+</head>
+
+<body>
+
+<h2 id="q"></h2>
+
+<input type="radio" name="opt" value="0"> <span id="o1"></span><br>
+<input type="radio" name="opt" value="1"> <span id="o2"></span><br><br>
+
+<button onclick="next()">Next</button>
+
+<p id="res"></p>
+
+<script>
+var quiz = [
+    ["2+2=?", "3", "4", 1],
+    ["Capital of India?", "Mumbai", "Delhi", 1]
+];
+
+var i = 0, score = 0;
+
+function load() {
+    q.innerHTML = quiz[i][0];
+    o1.innerHTML = quiz[i][1];
+    o2.innerHTML = quiz[i][2];
+}
+
+function next() {
+    var opt = document.getElementsByName("opt");
+
+    if (opt[0].checked && quiz[i][3] == 0) score++;
+    if (opt[1].checked && quiz[i][3] == 1) score++;
+
+    opt[0].checked = false;
+    opt[1].checked = false;
+
+    i++;
+
+    if (i < quiz.length)
+        load();
+    else
+        res.innerHTML = "Score: " + score;
+}
+
+load();
+</script>
+
+</body>
+</html>
