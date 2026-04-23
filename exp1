@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Section Webpage</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        header, footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav {
+            background: gray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            border-bottom: 1px solid black;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .box {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Website</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Home Section</h2>
+        <p>This is the home section of the webpage.</p>
+    </section>
+
+    <section class="container">
+        <div class="box">
+            <h3>Box 1</h3>
+            <p>Content here</p>
+        </div>
+
+        <div class="box">
+            <h3>Box 2</h3>
+            <p>Content here</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>About Section</h2>
+        <p>Information about the website.</p>
+    </section>
+
+    <footer>
+        <p>Footer Section</p>
+    </footer>
+
+</body>
+</html>
